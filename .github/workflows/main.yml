@@ -30,6 +30,6 @@ jobs:
       - name: Docker イメージをビルド
         run: docker build -t ${{ secrets.ECR_REPOSITORY }} .
 
-      # - name: イメージをECRにpush
-      #   run: |
-      #     docker push ${{ secrets.ECR_REPOSITORY }}
+      - name: イメージをECRにpush
+        run: |
+          docker push ${{ secrets.ECR_REPOSITORY }}
