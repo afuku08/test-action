@@ -18,7 +18,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: ${{ secrets.AWS_REGION }}
-          role-to-assume: "arn:aws:iam::415355479792:user/seiya_fukuhara"
+          role-to-assume: "arn:aws:iam::415355479792:role/fukuhara-github-actions-test"
 
       - name: ECRにログイン
         id: login-ecr
@@ -27,6 +27,6 @@ jobs:
       - name: Docker イメージをビルド
         run: docker build -t ${{ secrets.ECR_REPOSITORY }} .
 
-      - name: イメージをECRにpush
-        run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}
+      # - name: イメージをECRにpush
+      #   run: |
+      #     docker push ${{ secrets.ECR_REPOSITORY }}
